@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Learn Computational Seismology</title>
-    <link>/learn-seismic-tomography/</link>
+    <link>https://computational-seismology.github.io/learn-seismic-tomography/</link>
     <description>Recent content on Learn Computational Seismology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 24 Oct 2017 14:59:51 -0400</lastBuildDate>
     
-	<atom:link href="/learn-seismic-tomography/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://computational-seismology.github.io/learn-seismic-tomography/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Simulations</title>
-      <link>/learn-seismic-tomography/building-blocks/simulations/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/simulations/</link>
       <pubDate>Tue, 24 Oct 2017 14:49:09 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/building-blocks/simulations/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/simulations/</guid>
       <description>Forward and adjoint solvers To perform a seismic inversion you will need a solver package with forward and adjoint simulation capabilities.
 Because the elastic wave equation is self-adjoint, numerical code for the forward simulation can be reused for the adjoint simulation. This is the approach taken with SPECFEM solvers.
 For the forward simulation, SPECFEM users must supply a velocity model, a seismic source along with a number of parameter files described in the solver user manual.</description>
@@ -24,20 +24,20 @@ For the forward simulation, SPECFEM users must supply a velocity model, a seismi
     
     <item>
       <title>Pre-Processing</title>
-      <link>/learn-seismic-tomography/building-blocks/pre-processing/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/pre-processing/</link>
       <pubDate>Tue, 24 Oct 2017 14:49:15 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/building-blocks/pre-processing/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/pre-processing/</guid>
       <description>We define &amp;lsquo;pre-processing&amp;rsquo; quite broadly as &amp;lsquo;operations carried out on seismic traces&amp;rsquo;. There are several modules you can make use of to assemble your own pre-processing workflow. Such modules may include:
  Signal processing Window selection Measuring fit between observed and synthetic seismograms Generating adjoint sources  Signal processing Seismic signal processing, is a subfield of digital signal processing (DSP). Though there are many tools developed for this purpose, the basic operations are the same.</description>
     </item>
     
     <item>
       <title>Optimization</title>
-      <link>/learn-seismic-tomography/building-blocks/optimization/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/optimization/</link>
       <pubDate>Tue, 24 Oct 2017 14:49:33 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/building-blocks/optimization/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/optimization/</guid>
       <description>Non-linear optimization Through use of an objective function that quanitifies the difference between observations and synthetics, waveform inversion becomes an optimization problem.
 Conventionally, the optimization procedure is divided into two steps:
  Compute search direction Determine step length  Compute search direction Nonlinear conjugate gradient, quasi-Newton, and truncated-Newton algorithms all provide viable options. In our experience, quasi-Newton algorithms generally provide the best performance.
@@ -46,10 +46,10 @@ Conventionally, the optimization procedure is divided into two steps:
     
     <item>
       <title>Post-Processing</title>
-      <link>/learn-seismic-tomography/building-blocks/post-processing/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/post-processing/</link>
       <pubDate>Tue, 24 Oct 2017 14:49:21 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/building-blocks/post-processing/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/post-processing/</guid>
       <description>From the adjoint simulations, we get sensitivity kernels for different events. We must perform operations on these kernels to get the gradient of the objective function, after which we can move on to the optimization procedure.
 We define post-processing as &amp;lsquo;operations on sensitivity kernels carried out after the adjoint simulations but before the optimization procedure.&amp;rsquo; Such operations may include
  Summation Projection (optional) Regularization Preconditioning (optional)  Summation First, contributions from individual sources must be summed to get the unprojected, unregularized gradient of the objective function.</description>
@@ -57,65 +57,65 @@ We define post-processing as &amp;lsquo;operations on sensitivity kernels carrie
     
     <item>
       <title>Workflow Management</title>
-      <link>/learn-seismic-tomography/building-blocks/workflow-management/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/workflow-management/</link>
       <pubDate>Tue, 24 Oct 2017 14:49:47 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/building-blocks/workflow-management/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/building-blocks/workflow-management/</guid>
       <description>This page is currently just a stub.</description>
     </item>
     
     <item>
       <title>External Resources</title>
-      <link>/learn-seismic-tomography/references/external-resources/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/references/external-resources/</link>
       <pubDate>Tue, 24 Oct 2017 15:07:14 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/references/external-resources/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/references/external-resources/</guid>
       <description>Describe me&amp;hellip;</description>
     </item>
     
     <item>
       <title>Publications</title>
-      <link>/learn-seismic-tomography/references/publications/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/references/publications/</link>
       <pubDate>Tue, 24 Oct 2017 15:07:06 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/references/publications/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/references/publications/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploration</title>
-      <link>/learn-seismic-tomography/toolsets/exploration/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/toolsets/exploration/</link>
       <pubDate>Tue, 24 Oct 2017 15:00:52 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/toolsets/exploration/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/toolsets/exploration/</guid>
       <description> Workflow management  SeisFlows  Pre-processing  Obspy Pyadjoint  Solver  SPECFEM2D SPECFEM3D  Post-processing  SPECFEM3D utilities  Optimization  [add link here]()  </description>
     </item>
     
     <item>
       <title>Regional Global</title>
-      <link>/learn-seismic-tomography/toolsets/regional-global/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/toolsets/regional-global/</link>
       <pubDate>Tue, 24 Oct 2017 15:00:46 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/toolsets/regional-global/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/toolsets/regional-global/</guid>
       <description>Workflow management  SeisFlows [RetakeShake](): light-weight workflow management tools(under development).  Pre-processing  Obspy Pyflex Pyadjoint Pytomo3d: high-level wrapper for kernel functions in signal processing, window selection and adjoint sources. Pypaw: high-level wrapper for pytomo3d and pyasdf.  Solver  SPECFEM2D SPECFEM3D SPECFEM3D_GLOBE  Post-processing  SPECFEM3D utilities  Optimization  [add link here]()  CMTSource Inversion  Pycmt3d  Other  Spaceweight: calculate spatial weight given a set of points.</description>
     </item>
     
     <item>
       <title>Source Inversion</title>
-      <link>/learn-seismic-tomography/workflows/source-inversion/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/workflows/source-inversion/</link>
       <pubDate>Tue, 24 Oct 2017 14:39:58 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/workflows/source-inversion/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/workflows/source-inversion/</guid>
       <description>Accurate earthquake source mechanisms are an important prerequisite for regional or global tomography. Even with a good source catalog, such as the Global CMT catalog, it is still useful to perform the following quality control check.
 Starting with Global CMT solutions, we solve a least squares problem to obtain updated source mechanisms. In most cases, the difference between starting values and updated values is quite small. Any large differences, however, require further investigation.</description>
     </item>
     
     <item>
       <title>Migration</title>
-      <link>/learn-seismic-tomography/workflows/migration/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/workflows/migration/</link>
       <pubDate>Tue, 24 Oct 2017 14:39:42 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/workflows/migration/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/workflows/migration/</guid>
       <description>Migration can be formulated as optimization problem involving forward and adjoint simulations, much like inversion. While inversions usually require many model update iterations, conventional migration involve only a single iteration.
 1. Forward simulation Given a velocity model as input, the forward simulation returns synthetic traces as output, just as in an inversion.
 2. Pre-processing In our terminology, pre-processing includes all operations performed on seismic traces prior to the adjoint simulation.</description>
@@ -123,10 +123,10 @@ Starting with Global CMT solutions, we solve a least squares problem to obtain u
     
     <item>
       <title>Inversion</title>
-      <link>/learn-seismic-tomography/workflows/inversion/</link>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/workflows/inversion/</link>
       <pubDate>Tue, 24 Oct 2017 14:39:35 -0400</pubDate>
       
-      <guid>/learn-seismic-tomography/workflows/inversion/</guid>
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/workflows/inversion/</guid>
       <description>Seismic inversion is by nature an iterative procedure. At each iteration we perform the following steps.
 To perform a model inversion, the following steps need to be done.  1. Forward simulation Given a velocity model as input, the forward simulation returns synthetic seismograms as output.
 Since your velocity model is different from the real-world model, the synthetic seismograms are also different from the observed data recorded by the seismometers.</description>
