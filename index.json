@@ -1,132 +1,132 @@
 [
 {
-	"uri": "learn-seismic-tomography/building-blocks/simulations/",
+	"uri": "/building-blocks/simulations/",
 	"title": "Simulations",
 	"tags": [],
 	"description": "",
 	"content": " Forward and adjoint solvers To perform a seismic inversion you will need a solver package with forward and adjoint simulation capabilities.\nBecause the elastic wave equation is self-adjoint, numerical code for the forward simulation can be reused for the adjoint simulation. This is the approach taken with SPECFEM solvers.\nFor the forward simulation, SPECFEM users must supply a velocity model, a seismic source along with a number of parameter files described in the solver user manual. The output consists of a set of seismic traces corresponding to user-supplied source and receiver locations.\nFor the adjoint simulation, SPECFEM users must supply a velocity model, parameter files, and a set of \u0026lsquo;adjoint sources\u0026rsquo;. Adjoint sources are computed from processed observations and synthetics through a formula that depends on the objective function under consideration. In our terminology, generating adjoint traces is the final step in preprocessing procedure.\nSeveral solvers are listed below:\n2D Solver  SPECFEM2d SPECFEM2D simulates forward and adjoint seismic wave propagation in two-dimensional acoustic, (an)elastic, poroelastic or coupled acoustic-(an)elastic-poroelastic media, with Convolution PML absorbing conditions.  The code is hosted on SPECFEM2D website at CIG.\n3D solver  SPECFEM3D   SPECFEM3D Cartesian simulates acoustic (fluid), elastic (solid), coupled acoustic/elastic, poroelastic or seismic wave propagation in any type of conforming mesh of hexahedra (structured or not.) It can, for instance, model seismic waves propagating in sedimentary basins or any other regional geological model following earthquakes. It can also be used for non-destructive testing or for ocean acoustics.\nThe code is hosted on SPECFEM3D website at CIG.\n SPECFEM3D_GLOBE   SPECFEM3D_GLOBE simulates global and regional (continental-scale) seismic wave propagation.\nThe code is hosted on SPECFEM3D_GLOBE website at CIG.\n"
 },
 {
-	"uri": "learn-seismic-tomography/workflows/",
+	"uri": "/workflows/",
 	"title": "Seismic Workflows",
 	"tags": [],
 	"description": "",
 	"content": "This chapter describes various workflows infrequently used to gain understanding of the Earth\u0026rsquo;s interior. Each of the subsequent parts describes a specific workflow and its applications.\n"
 },
 {
-	"uri": "learn-seismic-tomography/building-blocks/pre-processing/",
+	"uri": "/building-blocks/pre-processing/",
 	"title": "Pre-Processing",
 	"tags": [],
 	"description": "",
 	"content": " We define \u0026lsquo;pre-processing\u0026rsquo; quite broadly as \u0026lsquo;operations carried out on seismic traces\u0026rsquo;. There are several modules you can make use of to assemble your own pre-processing workflow. Such modules may include:\n Signal processing Window selection Measuring fit between observed and synthetic seismograms Generating adjoint sources  Signal processing Seismic signal processing, is a subfield of digital signal processing (DSP). Though there are many tools developed for this purpose, the basic operations are the same.\nHere we listed some code examples based on Obspy. The python code example is pretty self-explanatory.\n1. Initial processing In this category we include simple operations such as demeaning, detrending and tapering.\nfrom obspy import read st = read(\u0026quot;/path/to/data\u0026quot;) st.detrend(\u0026quot;linear\u0026quot;) st.detrend(\u0026quot;demean\u0026quot;) st.taper(max_percentage=0.05, type=\u0026quot;hann\u0026quot;)  [include figures]\n2. Instrument response removal Seismic data are often provided as raw output from a seismometer. In such cases, the response of the instrument must be removed before the data can be used in any meaningful way. Also, filtering will happen at the same time when we remove the instrument response.\nfrom obspy import read_inventory ## Corner frequency of filter(Hz) pre_filt = [0.013, 0.016, 0.033, 0.045] ## read in stationxml file inv = read_inventory(\u0026quot;/path/to/stationxml/file\u0026quot;) st.attach_inventory(inv) st.remove_response(output=\u0026quot;DISP\u0026quot;, pre_filt=pre_filt, zero_mean=False, taper=False) ## you may want to demean, detrend and taper again st.detrend(\u0026quot;linear\u0026quot;) st.detrend(\u0026quot;demean\u0026quot;) st.taper(max_percentage=0.05, type=\u0026quot;hann\u0026quot;) st.interpolate(sampling_rate=sampling_rate, starttime=starttime, npts=npts)  3. Bandpass filtering For synthetic data, we need to banpass filter it into the same period band as observed data.\n## Bp code here  [include code and figures]\nWindow selection In regional and global inversion, comparison of observations and synthetics within carefully selected windows can be used to allow expertise with classical body wave and surface wave phases to be brought to bear in the waveform inversion framework. In this approach, window selection is made on the basis of fit between observations and synthetics, with windows chosen only where the fit is good. In our approach, relatively few windows are chosen at the beginning. As the inversion progresses and data fit improves, more and more are added so that eventually the whole waveform is included.\n[*Figure Credit to Pyflex]\nWindows selection tools * pyflex: python export of FLEXWIN * FLEXWIN: original version of FLEXWIN\nOutside of regional and global inversion, record sections may be more complex, window selection may be less stable, and other strategies for mitigating nonlinearity and nonconvexity may be preferred.\nMeasuring fit between observed and synthetic seismograms [click to show sample code]() [click to show sample figures]()\nGenerating adjoint sources Different kinds of adjoint sources can be calculated based on the measurements.\nAjoint sources creation tools * Pyadjoint * Measure_adj\n"
 },
 {
-	"uri": "learn-seismic-tomography/building-blocks/",
+	"uri": "/building-blocks/",
 	"title": "Building blocks",
 	"tags": [],
 	"description": "",
 	"content": "Seismic workflows are complex processes, involving a lot of moving parts. In this chapter, we give an overview of the different pieces. In depth information on software used to run this building blocks are better found in their own documentation.\n"
 },
 {
-	"uri": "learn-seismic-tomography/building-blocks/optimization/",
+	"uri": "/building-blocks/optimization/",
 	"title": "Optimization",
 	"tags": [],
 	"description": "",
 	"content": " Non-linear optimization Through use of an objective function that quanitifies the difference between observations and synthetics, waveform inversion becomes an optimization problem.\nConventionally, the optimization procedure is divided into two steps:\n Compute search direction Determine step length  Compute search direction Nonlinear conjugate gradient, quasi-Newton, and truncated-Newton algorithms all provide viable options. In our experience, quasi-Newton algorithms generally provide the best performance.\n[example using SeisFlows]() [example using SPECFEM utilities]()\nDetermine step length Given a search direction, the line search consists of finding an acceptable step length. With an efficient line search, good step lengths can usually be found with one or two forward simulations.\n[example using SeisFlows]() [example using SPECFEM utilities]()\nNonlinearity and nonconvexity As an optimization problem, waveform inversion is both nonlinear and nonconvex.\nMany optimization algorithms were devised for linear problems and only later adapted for nonlinear problems. Numerical errors that accumulate as a result of nonlinearity can be dealt with by discarding the \u0026lsquo;memory\u0026rsquo; of the algorithm and starting once again from the steepest descent direction.\nBecause of nonconvexity, convergence to a point other than global minimum of the objective function is a possibility. Through choice of multiscale and regularization parameters, care must be taken that the updated model remains in the basin of convergence of the global minimum.\n"
 },
 {
-	"uri": "learn-seismic-tomography/building-blocks/post-processing/",
+	"uri": "/building-blocks/post-processing/",
 	"title": "Post-Processing",
 	"tags": [],
 	"description": "",
 	"content": " From the adjoint simulations, we get sensitivity kernels for different events. We must perform operations on these kernels to get the gradient of the objective function, after which we can move on to the optimization procedure.\nWe define post-processing as \u0026lsquo;operations on sensitivity kernels carried out after the adjoint simulations but before the optimization procedure.\u0026rsquo; Such operations may include\n Summation Projection (optional) Regularization Preconditioning (optional)  Summation First, contributions from individual sources must be summed to get the unprojected, unregularized gradient of the objective function. In adjoint tomography, we say that event kernels are added together to produce a misfit kernel.\nProjection Optionally, users can convert from the numerical basis used by the solver to an alternate basis consisting of splines, pixels, harmonics, or the like. In general we prefer to work in the in the numerical basis because it is simpler and just as effective.\nRegularization Viable regularization strategies include \u0026lsquo;classical\u0026rsquo; regularization, based on damping or smoothing terms in the objective function, or \u0026lsquo;ad hoc\u0026rsquo; regularization based on smoothing or clipping performed directly on the sensitivity kernels. Extensive precedents exist for both strategies.\nPreconditioning Finally, we precondition the gradient. Details of the preconditioning operation vary depending on what optimization algorithm is used. Usually, our approach involves scaling the gradient by the diagonal Hessian or some approximation to it.\n"
 },
 {
-	"uri": "learn-seismic-tomography/building-blocks/workflow-management/",
+	"uri": "/building-blocks/workflow-management/",
 	"title": "Workflow Management",
 	"tags": [],
 	"description": "",
 	"content": "This page is currently just a stub.\n"
 },
 {
-	"uri": "learn-seismic-tomography/toolsets/",
+	"uri": "/toolsets/",
 	"title": "Toolsets",
 	"tags": [],
 	"description": "",
 	"content": "For the hurried user, that does not want \u0026ndash;or need, to read the other chapters of this document, we provide here the list of tools that we use in production.\n"
 },
 {
-	"uri": "learn-seismic-tomography/references/",
+	"uri": "/references/",
 	"title": "References",
 	"tags": [],
 	"description": "",
 	"content": "If you want to know more about computational seismology, the following references will come handy.\n"
 },
 {
-	"uri": "learn-seismic-tomography/references/external-resources/",
+	"uri": "/references/external-resources/",
 	"title": "External Resources",
 	"tags": [],
 	"description": "",
 	"content": "Describe me\u0026hellip;\n"
 },
 {
-	"uri": "learn-seismic-tomography/references/publications/",
+	"uri": "/references/publications/",
 	"title": "Publications",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "learn-seismic-tomography/toolsets/exploration/",
+	"uri": "/toolsets/exploration/",
 	"title": "Exploration",
 	"tags": [],
 	"description": "",
 	"content": " Workflow management  SeisFlows  Pre-processing  Obspy Pyadjoint  Solver  SPECFEM2D SPECFEM3D  Post-processing  SPECFEM3D utilities  Optimization  [add link here]()  "
 },
 {
-	"uri": "learn-seismic-tomography/toolsets/regional-global/",
+	"uri": "/toolsets/regional-global/",
 	"title": "Regional Global",
 	"tags": [],
 	"description": "",
 	"content": " Workflow management  SeisFlows [RetakeShake](): light-weight workflow management tools(under development).  Pre-processing  Obspy Pyflex Pyadjoint Pytomo3d: high-level wrapper for kernel functions in signal processing, window selection and adjoint sources. Pypaw: high-level wrapper for pytomo3d and pyasdf.  Solver  SPECFEM2D SPECFEM3D SPECFEM3D_GLOBE  Post-processing  SPECFEM3D utilities  Optimization  [add link here]()  CMTSource Inversion  Pycmt3d  Other  Spaceweight: calculate spatial weight given a set of points.  Legacy  FLEXWIN FLEXWIN_ASDF MEASURE_ADJ  "
 },
 {
-	"uri": "learn-seismic-tomography/",
+	"uri": "/",
 	"title": "Learn Computational Seismology",
 	"tags": [],
 	"description": "",
 	"content": " Learn Computational Seismology In construction\u0026hellip;\n "
 },
 {
-	"uri": "learn-seismic-tomography/workflows/source-inversion/",
+	"uri": "/workflows/source-inversion/",
 	"title": "Source Inversion",
 	"tags": [],
 	"description": "",
 	"content": " Accurate earthquake source mechanisms are an important prerequisite for regional or global tomography. Even with a good source catalog, such as the Global CMT catalog, it is still useful to perform the following quality control check.\nStarting with Global CMT solutions, we solve a least squares problem to obtain updated source mechanisms. In most cases, the difference between starting values and updated values is quite small. Any large differences, however, require further investigation.\nTo perform a CMT inversion, the following steps need to be done.\nThe procedure can be further summarized as follows.\n1. Prepare CMT files The CMT inversion is based on finited difference method. i.e, perturbing the paramters of CMT solution and calculate waveform difference. For global CMT solution, we usually invert 9 paramters: Moment tensor[Mrr, Mtt, Mpp, Mrt, Mrp, Mtp] and location[latitude, longitude, Depth]. Thus, 9 perturbed CMT files should be prepared at this stage.\n2. Forward simulation To obtain updated source mechanisms, we compute partial derivatives of synthetic seismograms with respect to 6 moment tensor elements and 3 location parameters. Using forward centered finite differences, 9 forward simulations must be carried out per earthquake.\n3. Pre-processing Operations include signal processing and window selection.\nMore information could be found in the Pre-processing page.\n4. Source mechanism inversion As with the gradient computation in Earth structure inversions, the Jacobian computation must be carried out using processed seismic traces. Once the Jacobian has been computed, it only remains to solve the corresponding linear system. We use the machinery provided by Pycmt [link] for doing so.\n"
 },
 {
-	"uri": "learn-seismic-tomography/workflows/migration/",
+	"uri": "/workflows/migration/",
 	"title": "Migration",
 	"tags": [],
 	"description": "",
 	"content": " Migration can be formulated as optimization problem involving forward and adjoint simulations, much like inversion. While inversions usually require many model update iterations, conventional migration involve only a single iteration.\n1. Forward simulation Given a velocity model as input, the forward simulation returns synthetic traces as output, just as in an inversion.\n2. Pre-processing In our terminology, pre-processing includes all operations performed on seismic traces prior to the adjoint simulation. Signal processing operations, comparison of obervations and synthetics, and creation of adjoint traces fall into this category.\n3. Adjoint simulation Given adjoint traces as input, the adjoint simulations returns sensitivity kernels as output.\n4. Post-processing In our terminology post-processing includes all operations performed on sensitivity kernels following the adjoint simulation. Summation, projection, regularization, and preconditioning fall into this category.\n5. Optimization (optional) In conventional migration, only a single iteration is carried out. Optionally, additional iterations can be performed using the same type of optimization procedure as in seismic waveform inversion.\n"
 },
 {
-	"uri": "learn-seismic-tomography/workflows/inversion/",
+	"uri": "/workflows/inversion/",
 	"title": "Inversion",
 	"tags": [],
 	"description": "",
 	"content": " Seismic inversion is by nature an iterative procedure. At each iteration we perform the following steps.\nTo perform a model inversion, the following steps need to be done.  1. Forward simulation Given a velocity model as input, the forward simulation returns synthetic seismograms as output.\nSince your velocity model is different from the real-world model, the synthetic seismograms are also different from the observed data recorded by the seismometers. Thus, the key point here is how to use the difference between observed data and synthetic data to update your velocity model, which we call the Seismic Inversion in tomography. After the first iteration, forward simulations performed as part of optimization procedure can simply be carried over to the next iteration.\nMore information about the forward solver(the software that can run forward simulation) could be found in the solver page.\n2. Pre-processing In our terminology, pre-processing includes all operations performed on seismic traces prior to the adjoint simulation. Signal processing operations, window selection of obervations and synthetics, and creation of adjoint sources fall into this category.\n Signal Processing The signal processing includes steps like removing trend, tapering data, removing instrument response and etc. Observed and synthetic data will be filtered into targeted period band.\n Window Selection If you do not want to make measurements on the whole seismograms, then selecting windows on the seismograms are required. We use some criterial to generate windows and afterwards measurement will only be made inside those windows.\n Adjoint Source Generation Adjoint sources are calculated inside windows. There are different kinds of adjoint sources you can choose.\n  More information could be found in the pre-processing page\n3. Adjoint simulation Given adjoint traces as input, the adjoint simulations returns sensitivity kernels as output.\nMore information about the adjoint solver(the software that can run adjoint simulation) could be found in the solver page.\n4. Post-processing In our terminology post-processing includes all operations performed on sensitivity kernels following the adjoint simulation. After post-processing, we will turn the kernels into gradient, and the gradient will be used in the optimization stage. Projection, regularization, and preconditioning fall into this category.\nMore information could be found in the post-processing page.\n5. Optimization Given the gradient direction, the optimization procedure returns an updated model. Conventionally, the optimization procedure consists of separate search direction and line search computations.\nMore information could be found in the optimization page.\n"
 },
 {
-	"uri": "learn-seismic-tomography/categories/",
+	"uri": "/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "learn-seismic-tomography/tags/",
+	"uri": "/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
