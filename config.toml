@@ -1,3 +1,23 @@
-baseURL = "http://example.org/"
+baseURL = "/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+defaultContentLanguage = "en"
+
+
+title = "Learn Computational Seismology"
+theme = "learn"
+metaDataFormat = "yaml"
+
+[params]
+  editURL = "https://github.com/computational-seismology/learn-seismic-tomography/tree/master/content/"
+  ordersectionsby = "weight"
+
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+
+[[menu.shortcuts]] 
+name = "<i class='fa fa-github'></i> Github Organization"
+identifier = "ds"
+url = "https://github.com/computational-seismology"
+weight = 10
