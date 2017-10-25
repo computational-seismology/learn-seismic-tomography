@@ -6,8 +6,7 @@ date: 2017-10-24T14:39:35-04:00
 Seismic inversion is by nature an iterative procedure.  At each iteration we perform the following steps.
 
 To perform a model inversion, the following steps need to be done.
-<center><img src="/SeisStar/img/inversion_workflow.jpg" alt="" width="400" align="middle"></center>
-![Inversion Workflow](/workflows/images/inversion_workflow.jpg?classes=shadow&width=400px)
+![Inversion Workflow](../images/inversion_workflow.jpg?classes=shadow&width=400px)
 
 #### 1. Forward simulation
 

@@ -10,7 +10,7 @@ Starting with Global CMT solutions, we solve a least squares problem to obtain u
 To perform a CMT inversion, the following steps need to be done.
 
 <!-- ![Image of CMT inversion](/SeisStar/img/SourceInversion.jpg =200x100) -->
-![CMT Inversion](/workflows/images/SourceInversion.jpg?classes=shadow&width=400px)
+![CMT Inversion](../images/SourceInversion.jpg?classes=shadow&width=400px)
 
 
 The procedure can be further summarized as follows.

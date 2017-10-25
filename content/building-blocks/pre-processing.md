@@ -60,7 +60,7 @@ For synthetic data, we need to banpass filter it into the same period band as ob
 ### Window selection
 In regional and global inversion, comparison of observations and synthetics within carefully selected windows can be used to allow expertise with classical body wave and surface wave phases to be brought to bear in the waveform inversion framework.  In this approach, window selection is made on the basis of fit between observations and synthetics, with windows chosen only where the fit is good.  In our approach, relatively few windows are chosen at the beginning.  As the inversion progresses and data fit improves, more and more are added so that eventually the whole waveform is included. 
 
-![window selection](/building-blocks/images/window_selection_demo.png?classes=shadow&width=600px)
+![window selection](../images/window_selection_demo.png?classes=shadow&width=600px)
 [*Figure Credit to Pyflex]
 
 **Windows selection tools**

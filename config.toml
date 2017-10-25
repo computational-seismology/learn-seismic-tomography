@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://computational-seismology.github.io/learn-seismic-tomography/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 
