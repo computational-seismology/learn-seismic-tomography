@@ -56,11 +56,25 @@
 	"content": "For the hurried user, that does not want \u0026ndash;or need, to read the other chapters of this document, we provide here the list of tools that we use in production.\n"
 },
 {
+	"uri": "https://computational-seismology.github.io/learn-seismic-tomography/visualization/",
+	"title": "Visualization",
+	"tags": [],
+	"description": "",
+	"content": "Guide on how to perform visualization.\n"
+},
+{
 	"uri": "https://computational-seismology.github.io/learn-seismic-tomography/references/",
 	"title": "References",
 	"tags": [],
 	"description": "",
 	"content": "If you want to know more about computational seismology, the following references will come handy.\n"
+},
+{
+	"uri": "https://computational-seismology.github.io/learn-seismic-tomography/visualization/global_visualization/",
+	"title": "Visualizing Global Earth Models",
+	"tags": [],
+	"description": "",
+	"content": "A short introduction on how to visualize global earth models.\n"
 },
 {
 	"uri": "https://computational-seismology.github.io/learn-seismic-tomography/references/external-resources/",
