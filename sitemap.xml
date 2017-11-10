@@ -48,6 +48,11 @@
   </url>
   
   <url>
+    <loc>https://computational-seismology.github.io/learn-seismic-tomography/visualization/</loc>
+    <lastmod>2017-10-24T14:38:57-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://computational-seismology.github.io/learn-seismic-tomography/references/external-resources/</loc>
     <lastmod>2017-10-24T15:07:14-04:00</lastmod>
   </url>
@@ -84,6 +89,11 @@
   
   <url>
     <loc>https://computational-seismology.github.io/learn-seismic-tomography/workflows/inversion/</loc>
+    <lastmod>2017-10-24T14:39:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://computational-seismology.github.io/learn-seismic-tomography/visualization/global_visualization/</loc>
     <lastmod>2017-10-24T14:39:35-04:00</lastmod>
   </url>
   

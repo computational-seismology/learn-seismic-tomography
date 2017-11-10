@@ -132,5 +132,14 @@ To perform a model inversion, the following steps need to be done. 1. Forward si
 Since your velocity model is different from the real-world model, the synthetic seismograms are also different from the observed data recorded by the seismometers. Thus, the key point here is how to use the difference between observed data and synthetic data to update your velocity model, which we call the Seismic Inversion in tomography.</description>
     </item>
     
+    <item>
+      <title>Visualization of global models</title>
+      <link>https://computational-seismology.github.io/learn-seismic-tomography/visualization/global_visualization/</link>
+      <pubDate>Tue, 24 Oct 2017 14:39:35 -0400</pubDate>
+      
+      <guid>https://computational-seismology.github.io/learn-seismic-tomography/visualization/global_visualization/</guid>
+      <description>Test.</description>
+    </item>
+    
   </channel>
 </rss>
